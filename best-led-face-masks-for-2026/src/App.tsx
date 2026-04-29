@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, X, Star, ChevronRight, Award, ShieldCheck, Clock, Zap, Info, Menu, ShoppingBag, Facebook, Twitter, Linkedin, Pin as Pinterest } from "lucide-react";
+import { Check, X, Star, ChevronRight, Award, ShieldCheck, Clock, Zap, Info, Facebook, Instagram, Twitter, Share2, Menu, ShoppingBag } from "lucide-react";
 
 interface Product {
   id: number;
@@ -218,6 +218,41 @@ const PRODUCTS: Product[] = [
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
+  const SHARE_URL = "https://go.consumerskills.org/click/1";
+  const SHARE_TITLE = "8 Best LED Face Masks 2026 | ConsumerSkills";
+  const SHARE_IMAGE = "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=1200";
+
+  const SOCIAL_LINKS = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SHARE_URL)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(SHARE_TITLE)}`,
+    pinterest: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(SHARE_URL)}&media=${encodeURIComponent(SHARE_IMAGE)}&description=${encodeURIComponent(SHARE_TITLE)}`,
+    instagram: "https://www.instagram.com/consumerskills" // Generic brand link
+  };
+
+  const handleShare = async (e: React.MouseEvent, platform: string) => {
+    if (platform !== 'instagram') return; // Allow normal link behavior for others
+    
+    e.preventDefault();
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: SHARE_TITLE,
+          text: `Check out this report on the 7 Best LED Face Masks of 2026!`,
+          url: SHARE_URL,
+        });
+      } catch (err) {
+        console.log('Share cancelled or failed', err);
+      }
+    } else {
+      // Desktop or unsupported fallback: Copy Link
+      try {
+        await navigator.clipboard.writeText(SHARE_URL);
+        alert("Link copied to clipboard! You can now share it on Instagram.");
+      } catch (err) {
+        window.open(SOCIAL_LINKS.instagram, "_blank");
+      }
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#FDFCFB] text-[#2D2D2D] font-sans selection:bg-rose-100">
@@ -236,6 +271,9 @@ export default function App() {
             <a href="https://go.consumerskills.org/click" className="hover:text-stone-900 transition-colors">About Our Lab</a>
           </nav>
           <div className="flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-4">
+              <a href={SOCIAL_LINKS.twitter} className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-4 h-4 text-xs" /></a>
+            </div>
             
             {/* Hamburger Button */}
             <button 
@@ -261,6 +299,10 @@ export default function App() {
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Skincare Science</a>
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Tech Reviews</a>
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">About Our Lab</a>
+                <div className="flex items-center gap-6 pt-4">
+                  <a href={SOCIAL_LINKS.facebook} className="text-stone-400 hover:text-stone-900 transition-colors"><Facebook className="w-6 h-6" /></a>
+                  <a href={SOCIAL_LINKS.twitter} className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-6 h-6" /></a>
+                </div>
               </div>
             </motion.div>
           )}
@@ -295,13 +337,17 @@ export default function App() {
                 </div>
              </div>
 
-             <div className="mt-8 flex items-center justify-center border border-stone-200 rounded-full px-1 py-1">
-                <a href="#product-1" className="flex items-center gap-2 px-12 py-3 text-[10px] font-black uppercase tracking-widest text-stone-900">
+             <div className="mt-8 flex items-center justify-between border border-stone-200 rounded-full px-1 py-1">
+                <a href="#product-1" className="flex items-center gap-2 px-6 py-3 text-[10px] font-black uppercase tracking-widest text-stone-900 border-r border-stone-200">
                   <div className="w-4 h-4 border-2 border-stone-900 rounded-full flex items-center justify-center">
                     <div className="w-1 h-1.5 bg-stone-900 rounded-full translate-y-[-0.5px]" />
                   </div>
                   View Products
                 </a>
+                <div className="flex-1 flex justify-around">
+                   <div className="p-3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></div>
+                   <div className="p-3 border-l border-stone-200"><Share2 className="w-4 h-4" strokeWidth={2.5} /></div>
+                </div>
              </div>
           </div>
           
@@ -324,7 +370,11 @@ export default function App() {
               </div>
             </div>
 
-
+            <div className="md:ml-auto flex items-center gap-3">
+              <div className="hidden md:flex gap-3 text-stone-300">
+                 <Share2 className="w-4 h-4 cursor-pointer hover:text-stone-900" />
+              </div>
+            </div>
           </div>
           
           <div className="h-[2px] bg-stone-900 w-full mt-10" />
@@ -338,7 +388,7 @@ export default function App() {
           className="mb-12 md:mb-20 md:rounded-[2rem] -mx-4 md:mx-0 overflow-hidden bg-stone-100 aspect-square md:aspect-[16/9] shadow-2xl relative group"
         >
           <img 
-            src="/mask.png" 
+            src="https://www.consumerskills.org/wp-content/uploads/2026/04/mask.png" 
             alt="Woman using professional LED light therapy mask"
             className="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-[3s]"
           />
@@ -767,49 +817,59 @@ export default function App() {
           </div>
         </section>
 
-
         {/* Social Share Section */}
-        <section className="py-16 border-t border-stone-100">
+        <section className="mt-20 py-16 border-t border-stone-100 bg-[#FDFCFB]">
           <div className="max-w-xl mx-auto px-4 text-center">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 mb-8">Share This Investigation</h3>
-            <div className="flex justify-center gap-4 md:gap-6">
-              {[
-                { 
-                  name: 'Facebook', 
-                  icon: Facebook, 
-                  url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}`,
-                  color: 'hover:text-blue-500'
-                },
-                { 
-                  name: 'Twitter', 
-                  icon: Twitter, 
-                  url: `https://twitter.com/intent/tweet?url=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}&text=${encodeURIComponent("8 Best LED Face Masks 2026 | ConsumerSkills")}`,
-                  color: 'hover:text-sky-400'
-                },
-                { 
-                  name: 'LinkedIn', 
-                  icon: Linkedin, 
-                  url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}`,
-                  color: 'hover:text-blue-400'
-                },
-                { 
-                  name: 'Pinterest', 
-                  icon: Pinterest, 
-                  url: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}&description=${encodeURIComponent("8 Best LED Face Masks 2026 | ConsumerSkills")}`,
-                  color: 'hover:text-red-500'
-                }
-              ].map((platform) => (
-                <a 
-                  key={platform.name}
-                  href={platform.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className={`flex items-center justify-center w-12 h-12 rounded-xl bg-stone-50 text-stone-400 transition-all duration-300 ${platform.color} hover:bg-stone-100 hover:scale-110`}
-                  title={`Share on ${platform.name}`}
-                >
-                  <platform.icon className="w-5 h-5" />
-                </a>
-              ))}
+            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-stone-400 mb-8">Share this report</h3>
+            <div className="flex justify-center gap-6 md:gap-10">
+              <a 
+                href={SOCIAL_LINKS.facebook} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="w-16 h-16 bg-[#1877F2] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 group-hover:-rotate-3 transition-all">
+                  <Facebook className="w-8 h-8 fill-current" />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#1877F2] opacity-0 group-hover:opacity-100 transition-opacity">Facebook</span>
+              </a>
+
+              <a 
+                href={SOCIAL_LINKS.twitter} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center shadow-lg shadow-stone-200 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-stone-900 opacity-0 group-hover:opacity-100 transition-opacity">Twitter / X</span>
+              </a>
+
+              <a 
+                onClick={(e) => handleShare(e, 'instagram')}
+                href={SOCIAL_LINKS.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="w-16 h-16 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-rose-200 group-hover:scale-110 group-hover:-rotate-3 transition-all">
+                  <Instagram className="w-8 h-8" />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#dc2743] opacity-0 group-hover:opacity-100 transition-opacity">Instagram</span>
+              </a>
+
+              <a 
+                href={SOCIAL_LINKS.pinterest} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="w-16 h-16 bg-[#BD081C] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-red-200 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.135-2.607 7.462-6.223 7.462-1.215 0-2.356-.631-2.748-1.379l-.749 2.848c-.27 1.03-1.001 2.321-1.488 3.111C10.116 23.912 11.042 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#BD081C] opacity-0 group-hover:opacity-100 transition-opacity">Pinterest</span>
+              </a>
             </div>
           </div>
         </section>
@@ -875,7 +935,7 @@ export default function App() {
                 </p>
                 <button 
                   onClick={() => setIsDisclosureOpen(true)}
-                  className="text-[11px] text-stone-400 hover:text-white transition-all font-bold uppercase tracking-widest underline underline-offset-4 decoration-rose-500/50 hover:decoration-rose-500 cursor-pointer"
+                  className="text-[11px] px-4 py-2 bg-stone-800 text-stone-300 rounded-lg hover:bg-stone-700 hover:text-white transition-all font-bold uppercase tracking-widest"
                 >
                   Affiliate Disclosure
                 </button>
