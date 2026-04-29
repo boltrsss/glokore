@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, X, Star, ChevronRight, Award, ShieldCheck, Clock, Zap, Info, Facebook, Instagram, Twitter, Share2, Menu, ShoppingBag } from "lucide-react";
+import { Check, X, Star, ChevronRight, Award, ShieldCheck, Clock, Zap, Info, Menu, ShoppingBag, Facebook, Twitter, Linkedin, Pin as Pinterest } from "lucide-react";
 
 interface Product {
   id: number;
@@ -218,9 +218,6 @@ const PRODUCTS: Product[] = [
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
-  const SHARE_URL = "https://us.consumerskills.org/best-led-face-masks-for-2026";
-  const SHARE_TITLE = "8 Best LED Face Masks 2026 | ConsumerSkills";
-  const SHARE_IMAGE = "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=1200";
 
   return (
     <div className="min-h-screen bg-[#FDFCFB] text-[#2D2D2D] font-sans selection:bg-rose-100">
@@ -239,9 +236,6 @@ export default function App() {
             <a href="https://go.consumerskills.org/click" className="hover:text-stone-900 transition-colors">About Our Lab</a>
           </nav>
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-4">
-              <a href="https://twitter.com/consumerskills" className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-4 h-4 text-xs" /></a>
-            </div>
             
             {/* Hamburger Button */}
             <button 
@@ -267,10 +261,6 @@ export default function App() {
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Skincare Science</a>
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Tech Reviews</a>
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">About Our Lab</a>
-                <div className="flex items-center gap-6 pt-4">
-                  <a href="https://facebook.com/consumerskills" className="text-stone-400 hover:text-stone-900 transition-colors"><Facebook className="w-6 h-6" /></a>
-                  <a href="https://twitter.com/consumerskills" className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-6 h-6" /></a>
-                </div>
               </div>
             </motion.div>
           )}
@@ -305,17 +295,13 @@ export default function App() {
                 </div>
              </div>
 
-             <div className="mt-8 flex items-center justify-between border border-stone-200 rounded-full px-1 py-1">
-                <a href="#product-1" className="flex items-center gap-2 px-6 py-3 text-[10px] font-black uppercase tracking-widest text-stone-900 border-r border-stone-200">
+             <div className="mt-8 flex items-center justify-center border border-stone-200 rounded-full px-1 py-1">
+                <a href="#product-1" className="flex items-center gap-2 px-12 py-3 text-[10px] font-black uppercase tracking-widest text-stone-900">
                   <div className="w-4 h-4 border-2 border-stone-900 rounded-full flex items-center justify-center">
                     <div className="w-1 h-1.5 bg-stone-900 rounded-full translate-y-[-0.5px]" />
                   </div>
                   View Products
                 </a>
-                <div className="flex-1 flex justify-around">
-                   <div className="p-3"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg></div>
-                   <div className="p-3 border-l border-stone-200"><Share2 className="w-4 h-4" strokeWidth={2.5} /></div>
-                </div>
              </div>
           </div>
           
@@ -338,11 +324,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="md:ml-auto flex items-center gap-3">
-              <div className="hidden md:flex gap-3 text-stone-300">
-                 <Share2 className="w-4 h-4 cursor-pointer hover:text-stone-900" />
-              </div>
-            </div>
+
           </div>
           
           <div className="h-[2px] bg-stone-900 w-full mt-10" />
@@ -356,7 +338,7 @@ export default function App() {
           className="mb-12 md:mb-20 md:rounded-[2rem] -mx-4 md:mx-0 overflow-hidden bg-stone-100 aspect-square md:aspect-[16/9] shadow-2xl relative group"
         >
           <img 
-            src="https://www.consumerskills.org/wp-content/uploads/2026/04/mask.png" 
+            src="/mask.png" 
             alt="Woman using professional LED light therapy mask"
             className="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-[3s]"
           />
@@ -785,11 +767,50 @@ export default function App() {
           </div>
         </section>
 
+
         {/* Social Share Section */}
-        <section className="mt-20 py-16 border-t border-stone-100 bg-[#FDFCFB]">
+        <section className="py-16 border-t border-stone-100">
           <div className="max-w-xl mx-auto px-4 text-center">
-            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-stone-400 mb-8 lowercase">Share this report</h3>
-            <div className="sharethis-inline-share-buttons"></div>
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 mb-8">Share This Investigation</h3>
+            <div className="flex justify-center gap-4 md:gap-6">
+              {[
+                { 
+                  name: 'Facebook', 
+                  icon: Facebook, 
+                  url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}`,
+                  color: 'hover:text-blue-500'
+                },
+                { 
+                  name: 'Twitter', 
+                  icon: Twitter, 
+                  url: `https://twitter.com/intent/tweet?url=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}&text=${encodeURIComponent("8 Best LED Face Masks 2026 | ConsumerSkills")}`,
+                  color: 'hover:text-sky-400'
+                },
+                { 
+                  name: 'LinkedIn', 
+                  icon: Linkedin, 
+                  url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}`,
+                  color: 'hover:text-blue-400'
+                },
+                { 
+                  name: 'Pinterest', 
+                  icon: Pinterest, 
+                  url: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent("https://us.consumerskills.org/best-led-face-masks-for-2026")}&description=${encodeURIComponent("8 Best LED Face Masks 2026 | ConsumerSkills")}`,
+                  color: 'hover:text-red-500'
+                }
+              ].map((platform) => (
+                <a 
+                  key={platform.name}
+                  href={platform.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={`flex items-center justify-center w-12 h-12 rounded-xl bg-stone-50 text-stone-400 transition-all duration-300 ${platform.color} hover:bg-stone-100 hover:scale-110`}
+                  title={`Share on ${platform.name}`}
+                >
+                  <platform.icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -854,7 +875,7 @@ export default function App() {
                 </p>
                 <button 
                   onClick={() => setIsDisclosureOpen(true)}
-                  className="text-[11px] px-4 py-2 bg-stone-800 text-stone-300 rounded-lg hover:bg-stone-700 hover:text-white transition-all font-bold uppercase tracking-widest"
+                  className="text-[11px] text-stone-400 hover:text-white transition-all font-bold uppercase tracking-widest underline underline-offset-4 decoration-rose-500/50 hover:decoration-rose-500 cursor-pointer"
                 >
                   Affiliate Disclosure
                 </button>
