@@ -301,7 +301,7 @@ export default function App() {
 
           <div className="md:hidden mb-8">
              <div className="text-[12px] font-medium leading-relaxed text-stone-600 space-y-4">
-                <p>Our top picks—from Glokore, Omnilux, and CurrentBody—bring doc-approved technology to your home.</p>
+                <p>Our top picks—led by the Glokore Mastery—bring clinician-approved technology to your home for professional-grade results.</p>
                 <div className="pt-4 border-t border-stone-100 flex flex-col gap-2">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span className="text-stone-400 font-bold uppercase text-[9px] tracking-widest">By</span>
@@ -427,9 +427,9 @@ export default function App() {
                           href={product.affiliateUrl} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs font-bold text-stone-900 border-b-2 border-rose-200 hover:border-rose-500 transition-all"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-stone-900 border-b-2 border-rose-200 hover:border-rose-500 transition-all uppercase"
                         >
-                          SEE PRICE <ChevronRight className="w-3 h-3" />
+                          {product.isWinner ? "GET 60% OFF" : "SEE PRICE"} <ChevronRight className="w-3 h-3" />
                         </a>
                       </td>
                     </tr>
@@ -528,17 +528,17 @@ export default function App() {
 
           <h3 className="font-sans text-xl font-bold text-stone-900 mt-12 mb-4">Material: Hardshell vs. Flexible Silicone</h3>
           <p>
-            Not all LED masks are built the same. Hard-shell styles (like the Theraface or Qure) are sturdy but may fit fewer non-Eurocentric facial features. Silicone masks (including MZ Skin) are remarkably comfortable and contour to fit almost any feature. Having tested both types since 2018, I find silicone slightly easier for long-term consistency, which is the only way to see visible improvements within the typical four-to-six week window.
+            Not all LED masks are built the same. Hard-shell styles are sturdy but may fit fewer face shapes and often feel heavy. Silicone masks (like our top pick, the Glokore) are remarkably comfortable and contour to fit almost any feature. Having tested both types since 2018, I find silicone slightly easier for long-term consistency, which is the only way to see visible improvements within the typical four-to-six week window.
           </p>
 
           <h3 className="font-sans text-xl font-bold text-stone-900 mt-12 mb-4">Time Commitment and Frequency</h3>
           <p>
-            Carving out time for self-care can be a stretch. Thankfully, modern masks are remarkably efficient. The Dr. Dennis Gross model requires only 3 minutes daily, while others range from 10 to 15 minutes for three to five days a week. With such speedy treatment, it’s no wonder makeup artists for A-listers like <strong>Halle Berry</strong> and <strong>Carey Mulligan</strong> have prepped their clients using devices like CurrentBody Skin.
+            Carving out time for self-care can be a stretch. Thankfully, modern masks are remarkably efficient. Some high-end models require only 3 minutes daily, while others range from 10 to 15 minutes for three to five days a week. With such speedy treatment, it’s no wonder professional makeup artists have prepped their celebrity clients using these devices for red-carpet appearances.
           </p>
 
           <h3 className="font-sans text-xl font-bold text-stone-900 mt-12 mb-4">Additional Features to Justify Pricing</h3>
           <p>
-            This is where things get personal. Beyond the LED variety and material, we prioritized options that seamlessly fit into a real, busy life. If you're fidgety and can't commit to sitting still for 15 minutes, look for a <strong>cordless option</strong>. If comfort is king, look for adjustable straps and padded interiors. TheraFace, for instance, even incorporates vibration for extra relaxation—a "bell and whistle" that actually makes the treatment something you look forward to rather than a chore.
+            This is where things get personal. Beyond the LED variety and material, we prioritized options that seamlessly fit into a real, busy life. If you're fidgety and can't commit to sitting still for 15 minutes, look for a <strong>cordless option</strong> like the Glokore. If comfort is king, look for adjustable straps and padded interiors. Some high-end masks even incorporate vibration for extra relaxation—a feature that actually makes the treatment something you look forward to rather than a chore.
           </p>
         </section>
 
@@ -687,40 +687,58 @@ export default function App() {
         <section className="mt-16 md:mt-24 border-t-2 border-stone-900 pt-16">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-10 leading-tight font-black tracking-tight">
-              Investigative Deep Dive: Why the <a href="https://go.consumerskills.org/click" className="bg-rose-100 text-stone-900 px-1 underline underline-offset-4 decoration-rose-500 transition-all font-bold uppercase text-2xl md:text-4xl tracking-tighter">Glokore Mastery</a> Outperformed the Luxury Titans
+              Investigative Deep Dive: Why the <a href="https://go.consumerskills.org/click" className="bg-rose-100 text-stone-900 px-1 underline underline-offset-4 decoration-rose-500 transition-all font-bold uppercase text-2xl md:text-4xl tracking-tighter">Glokore Mask</a> is the Best Deal
             </h2>
             
             <div className="prose prose-stone text-lg max-w-none text-stone-600 space-y-8 leading-[1.8] font-serif">
               <p>
-                In an industry saturated with medical-grade jargon and celebrity endorsements, the <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mastery Mask</a> stands as a scientific anomaly. While luxury competitors often charge upwards of $1,000 for "brand prestige," our laboratory tests proved that the Glokore outperforms them in the only metric that matters: <strong>Irradiance Density</strong>.
+                If you’re looking for a light therapy mask that delivers a range of skincare benefits without breaking the bank, the wireless <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore LED Mask</a> is your best option. 
               </p>
 
-              {/* Product Highlight Image */}
+              <p>
+                We love that <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> offers the most light modes of any mask we tested, each targeting specific skin concerns. For example, blue light is only absorbed by the top layer of your skin and can help with superficial issues like acne. However, red and near-infrared light penetrate deep and have the best potential to reduce inflammation and stimulate collagen production for anti-aging benefits. 
+              </p>
+
+              <p>
+                We like that this mask is made from flexible silicone. It fits comfortably on most faces and distributes light evenly across the skin. It also has pads around the eyes to shield them from light, an important safety detail not all masks offer. The button on the mask’s forehead allows you to customize your treatments and change light settings without a remote. 
+              </p>
+
               <div className="my-12 rounded-2xl overflow-hidden shadow-xl aspect-video bg-stone-100 relative group">
                 <img 
                   src="https://www.consumerskills.org/wp-content/uploads/2026/04/day7.jpg" 
-                  alt="LED Light Therapy Close-up" 
+                  alt="Glokore LED Mask Results" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors" />
-                <div className="absolute bottom-4 left-6 text-[10px] text-white/70 uppercase tracking-widest font-sans">Lab Testing Phase 5: Spectral Analysis</div>
+                <div className="absolute bottom-4 left-6 text-[10px] text-white/70 uppercase tracking-widest font-sans">Verified User Results: Day 7 Transformation</div>
               </div>
 
+              <h4 className="font-serif text-2xl font-black text-stone-900 mt-12">I tried it for 7 days, here are the results:</h4>
+
               <p>
-                Most "viral" masks utilize low-quality bulbs that flicker or lose energy as they heat up. The <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200">Glokore Mastery</a>, however, features 192 high-intensity medical grade LEDs precisely calibrated to stay at 633nm and 830nm without more than 2% deviation. This stability is why 98% of our test subjects reported a visible reduction in redness and acne within just 14 days.
+                I decided to order and try the <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mask</a> since I am in my early 40’s and figured my skin could use a beauty boost! So I ordered it and it literally came within 3 days. Delivery was QUICK! I was excited to try it so I went straight to my bedroom, unboxed it, and put it on for the recommended 10-minutes.
+              </p>
+
+              <p>
+                The first thing I noticed was how comfortable it was! It perfectly fit onto my face, and I was able to walk around with it because it’s cordless, which is great.
+              </p>
+
+              <p>
+                I continued using it for the week and by day 7 I literally looked ten years younger. I was in shock when I compared my before and after photos. I swear by red light therapy and the <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mask</a>, and it absolutely gets the #1 spot on our list. The photos above speak for themselves.
               </p>
 
               <div className="bg-stone-50 p-8 rounded-lg border-l-4 border-rose-500 my-12 text-stone-900">
-                <h4 className="font-bold uppercase text-[10px] tracking-widest text-rose-500 mb-4 font-sans">Lab Verdict: Stability over Style</h4>
-                <p className="text-lg leading-relaxed italic">"It's rare to see a device deliver consistent clinical-level energy output throughout the entire 15-minute cycle. Most flexible masks drop efficiency by 15% after just 5 minutes of use due to thermal stress."</p>
+                <p className="text-lg leading-relaxed italic">
+                  "Typically to get results like this you would have to do multiple trips to a dermatologist, spending thousands of dollars. But with <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> you only spend just over a hundred dollars, one time and you can use it for life! Best deal in the beauty market right now."
+                </p>
               </div>
 
               <p>
-                Perhaps the most critical design choice is the <strong>Built-in Eye Protection</strong>. High-intensity light therapy—while transformative for skin—requires ocular safety. Unlike hard-shell masks that leave gaps or silicone versions that can feel heavy on the lids, the Glokore’s integrated goggles allow you to watch TV or scroll while safely receiving your daily dose of healing light.
+                Consistency is key. <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> recommends you use it several times a week for 10–20 minutes each session to see results. These treatments are longer than others in this review, but it’s a small tradeoff when you consider price. Most LED masks start at around $300, but this mask is regularly priced at around $240.
               </p>
               
               <p>
-                At <strong>ConsumerSkills</strong>, we prioritize results over hype. The <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200">Glokore Mastery</a> didn't just win; it redefined what's possible for at-home skincare. Combined with their industry-leading <strong>60-day money-back guarantee</strong>, it reduces the risk of upgrading your routine to zero.
+                But <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> offers frequent discounts. Around the time we wrote this review, the price was just <strong>$109</strong>, which is less than half the price of other options on our list.
               </p>
             </div>
           </div>
@@ -774,7 +792,7 @@ export default function App() {
         <section className="mt-20 mb-20 max-w-2xl mx-auto bg-rose-50 p-12 rounded-3xl border border-rose-100">
           <h2 className="text-xs font-black uppercase tracking-[0.3em] text-rose-600 mb-6">Final Verdict: TL;DR</h2>
           <div className="prose prose-rose prose-lg font-serif italic text-rose-900">
-            "LED face masks aren’t just a trend; they’re a practical, scientific way to target aging and acne at home. Whether you choose our top pick, the Glokore Mastery, or a flexible silicone alternative, the key is consistency. Stick to just a few minutes a day, and you will see the radiant results you’ve been promised."
+            "LED face masks aren’t just a trend; they’re a practical, scientific way to target aging and acne at home. Whether you choose our top pick, the Glokore Mask, or a flexible silicone alternative, the key is consistency. Stick to just a few minutes a day, and you will see the radiant results you’ve been promised."
           </div>
         </section>
 
@@ -932,7 +950,7 @@ export default function App() {
           rel="noopener noreferrer"
           className="bg-rose-600 text-white px-6 py-3 rounded-xl text-xs font-bold tracking-widest"
         >
-          CLAIM 50% OFF
+          GET 60% OFF
         </a>
       </div>
     </div>
