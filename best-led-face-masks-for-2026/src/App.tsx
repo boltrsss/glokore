@@ -218,41 +218,9 @@ const PRODUCTS: Product[] = [
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
-  const SHARE_URL = "https://go.consumerskills.org/click/1";
+  const SHARE_URL = "https://us.consumerskills.org/best-led-face-masks-for-2026";
   const SHARE_TITLE = "8 Best LED Face Masks 2026 | ConsumerSkills";
   const SHARE_IMAGE = "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=1200";
-
-  const SOCIAL_LINKS = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SHARE_URL)}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(SHARE_TITLE)}`,
-    pinterest: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(SHARE_URL)}&media=${encodeURIComponent(SHARE_IMAGE)}&description=${encodeURIComponent(SHARE_TITLE)}`,
-    instagram: "https://www.instagram.com/consumerskills" // Generic brand link
-  };
-
-  const handleShare = async (e: React.MouseEvent, platform: string) => {
-    if (platform !== 'instagram') return; // Allow normal link behavior for others
-    
-    e.preventDefault();
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: SHARE_TITLE,
-          text: `Check out this report on the 7 Best LED Face Masks of 2026!`,
-          url: SHARE_URL,
-        });
-      } catch (err) {
-        console.log('Share cancelled or failed', err);
-      }
-    } else {
-      // Desktop or unsupported fallback: Copy Link
-      try {
-        await navigator.clipboard.writeText(SHARE_URL);
-        alert("Link copied to clipboard! You can now share it on Instagram.");
-      } catch (err) {
-        window.open(SOCIAL_LINKS.instagram, "_blank");
-      }
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#FDFCFB] text-[#2D2D2D] font-sans selection:bg-rose-100">
@@ -272,7 +240,7 @@ export default function App() {
           </nav>
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-4">
-              <a href={SOCIAL_LINKS.twitter} className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-4 h-4 text-xs" /></a>
+              <a href="https://twitter.com/consumerskills" className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-4 h-4 text-xs" /></a>
             </div>
             
             {/* Hamburger Button */}
@@ -300,8 +268,8 @@ export default function App() {
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Tech Reviews</a>
                 <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">About Our Lab</a>
                 <div className="flex items-center gap-6 pt-4">
-                  <a href={SOCIAL_LINKS.facebook} className="text-stone-400 hover:text-stone-900 transition-colors"><Facebook className="w-6 h-6" /></a>
-                  <a href={SOCIAL_LINKS.twitter} className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-6 h-6" /></a>
+                  <a href="https://facebook.com/consumerskills" className="text-stone-400 hover:text-stone-900 transition-colors"><Facebook className="w-6 h-6" /></a>
+                  <a href="https://twitter.com/consumerskills" className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-6 h-6" /></a>
                 </div>
               </div>
             </motion.div>
@@ -820,57 +788,8 @@ export default function App() {
         {/* Social Share Section */}
         <section className="mt-20 py-16 border-t border-stone-100 bg-[#FDFCFB]">
           <div className="max-w-xl mx-auto px-4 text-center">
-            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-stone-400 mb-8">Share this report</h3>
-            <div className="flex justify-center gap-6 md:gap-10">
-              <a 
-                href={SOCIAL_LINKS.facebook} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex flex-col items-center gap-3"
-              >
-                <div className="w-16 h-16 bg-[#1877F2] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 group-hover:-rotate-3 transition-all">
-                  <Facebook className="w-8 h-8 fill-current" />
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#1877F2] opacity-0 group-hover:opacity-100 transition-opacity">Facebook</span>
-              </a>
-
-              <a 
-                href={SOCIAL_LINKS.twitter} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex flex-col items-center gap-3"
-              >
-                <div className="w-16 h-16 bg-black text-white rounded-2xl flex items-center justify-center shadow-lg shadow-stone-200 group-hover:scale-110 group-hover:rotate-3 transition-all">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-stone-900 opacity-0 group-hover:opacity-100 transition-opacity">Twitter / X</span>
-              </a>
-
-              <a 
-                onClick={(e) => handleShare(e, 'instagram')}
-                href={SOCIAL_LINKS.instagram} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex flex-col items-center gap-3"
-              >
-                <div className="w-16 h-16 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-rose-200 group-hover:scale-110 group-hover:-rotate-3 transition-all">
-                  <Instagram className="w-8 h-8" />
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#dc2743] opacity-0 group-hover:opacity-100 transition-opacity">Instagram</span>
-              </a>
-
-              <a 
-                href={SOCIAL_LINKS.pinterest} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex flex-col items-center gap-3"
-              >
-                <div className="w-16 h-16 bg-[#BD081C] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-red-200 group-hover:scale-110 group-hover:rotate-3 transition-all">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.135-2.607 7.462-6.223 7.462-1.215 0-2.356-.631-2.748-1.379l-.749 2.848c-.27 1.03-1.001 2.321-1.488 3.111C10.116 23.912 11.042 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#BD081C] opacity-0 group-hover:opacity-100 transition-opacity">Pinterest</span>
-              </a>
-            </div>
+            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-stone-400 mb-8 lowercase">Share this report</h3>
+            <div className="sharethis-inline-share-buttons"></div>
           </div>
         </section>
 
