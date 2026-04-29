@@ -168,7 +168,7 @@ const PRODUCTS: Product[] = [
       "Hard shell strap can be tight on some face shapes",
       "Significant investment"
     ],
-    description: "This mask is the closest thing you'll get to an in-office treatment. Developed by celebrity dermatologist Dr. Dennis Gross, it uses a potent combination of Red and Blue light. In our trials, it cleared inflammatory acne within days. However, the price point is steep, and it doesn't offer the multi-color versatility (like Yellow or Green lights) found in our #1 pick.",
+    description: "This mask is the closest thing you'll get to an in-office treatment. Developed by celebrity dermatologist Dr. Dennis Gross, it uses a potent, high-intensity combination of Red and Blue light. In our trials, it cleared inflammatory acne within days. While the price point is on the higher end, its proven medical-grade efficacy and 3-minute treatment time make it a top-tier choice for targeted results.",
     affiliateUrl: "https://amzn.to/3P7XTg8"
   },
   {
@@ -189,7 +189,7 @@ const PRODUCTS: Product[] = [
       "No blue light for acne treatment",
       "Fewer LEDs than some luxury competitors"
     ],
-    description: "Solawave’s mask is a standout for those who need a consistent routine on the go. It’s lightweight, FDA-cleared, and focuses specifically on boosting collagen and reducing fine lines using a precise combo of Red, Deep Red, Near-Infrared, and Amber light. While it doesn't offer the multi-color spectrum of the Glokore, its sheer simplicity and quick 3-minute treatment time make it a favorite for busy professionals who travel frequently.",
+    description: "Solawave’s mask is a standout for those who need a consistent routine on the go. It’s lightweight, FDA-cleared, and focuses specifically on boosting collagen and reducing fine lines using a precise combo of Red, Deep Red, Near-Infrared, and Amber light. Its sheer simplicity and quick 3-minute treatment sessions make it a favorite for busy professionals who need an effective, portable solution without complex settings.",
     affiliateUrl: "https://amzn.to/4t11eve"
   },
   {
@@ -210,7 +210,7 @@ const PRODUCTS: Product[] = [
       "Premium Price point",
       "Heavier structure than simple silicone"
     ],
-    description: "JOVS 4D Laser Light Therapy Mask features more focused and powerful light than LED light, delivering 6× higher energy for visibly improved results in just one week. Designed for high-performance anti-aging, it penetrates deeper into the dermal layer than traditional LED masks. While it carries a premium price tag, our tests confirmed that the spectral density outperforms almost every other consumer-grade device we've evaluated to date.",
+    description: "The JOVS 4D Laser Light Therapy Mask utilizes focused laser diodes, delivering 6× higher energy density than traditional broad-spectrum LEDs for visibly improved results in just one week. Designed for high-performance anti-aging, it penetrates deeper into the dermal layer to target stubborn fine lines. It represents a premium investment in cutting-edge light technology for those seeking maximum intensity and rapid recovery.",
     affiliateUrl: "https://amzn.to/4eKBeAY"
   }
 ];
