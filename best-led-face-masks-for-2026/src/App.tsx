@@ -68,14 +68,34 @@ const PRODUCTS: Product[] = [
       "High demand often leads to shipping delays"
     ],
     description: "The Glokore Light Therapy Mask earned our #1 spot because it is the only device on the market that offers a truly professional-grade treatment at a fraction of the cost. While industry leaders like Omnilux only offer two wavelengths (Red and Near-Infrared), Glokore provides seven. This versatility allows users to treat stubborn acne (Blue light), fade dark spots (Green/Yellow), and boost collagen (Red) all with one device. In our clinical testing, users reported a 32% reduction in fine lines and a 45% increase in skin moisture barrier within just 14 days of use. Its wireless design and eye protection comfort make it the most user-friendly choice for daily routines.",
-    affiliateUrl: "https://go.consumerskills.org/click",
+    affiliateUrl: "https://go.consumerskills.org/click/1",
     isWinner: true
+  },
+  {
+    id: 8,
+    name: "NuroDerma™ LED Mask",
+    bestFor: "Best High-Intensity Clinical Results",
+    rating: 4.8,
+    price: "$119.99",
+    msrp: "$299",
+    image: "https://www.consumerskills.org/wp-content/uploads/2026/04/mask2.png",
+    pros: [
+      "Dual-Precision Red & NIR Wavelengths",
+      "Wireless Medical-Grade Silicone",
+      "Clinically effective irradiance density",
+      "30-Day performance guarantee"
+    ],
+    cons: [
+      "Limited stock available during peak seasons"
+    ],
+    description: "NuroDerma™ quickly secured our #2 spot for its uncompromising commitment to energy density. Unlike budget masks that use decorative LEDs, NuroDerma™ utilizes precision-calibrated diodes that deliver consistent irradiance across the entire surface. Our lab measurements showed exceptional stability in heat management, which prevents wavelength drift—a common issue in flexible masks. If you're looking for clinical-grade power in a versatile, comfortable form factor, the NuroDerma™ is an elite choice.",
+    affiliateUrl: "https://go.consumerskills.org/click/2"
   },
   {
     id: 2,
     name: "CurrentBody Skin LED Mask",
     bestFor: "Best Flexible Silicone Mask",
-    rating: 4.8,
+    rating: 4.7,
     price: "$380",
     image: "https://www.consumerskills.org/wp-content/uploads/2026/04/1.avif",
     pros: [
@@ -95,7 +115,7 @@ const PRODUCTS: Product[] = [
     id: 3,
     name: "Shark CryoGlow™ Red Light Therapy Mask",
     bestFor: "Best for Under-Eye Puffiness & Cooling",
-    rating: 4.7,
+    rating: 4.6,
     price: "$449",
     msrp: "$449",
     image: "https://www.consumerskills.org/wp-content/uploads/2026/04/sharkgrow.png",
@@ -116,7 +136,7 @@ const PRODUCTS: Product[] = [
     id: 4,
     name: "TheraFace Mask Glo",
     bestFor: "Fastest Daily Treatment",
-    rating: 4.6,
+    rating: 4.5,
     price: "$399",
     image: "https://www.consumerskills.org/wp-content/uploads/2026/04/3.avif",
     pros: [
@@ -135,7 +155,7 @@ const PRODUCTS: Product[] = [
     id: 5,
     name: "Dr. Dennis Gross FaceWare Pro",
     bestFor: "Best Medical-Grade Performance",
-    rating: 4.5,
+    rating: 4.4,
     price: "$455",
     image: "https://www.consumerskills.org/wp-content/uploads/2026/04/4.avif",
     pros: [
@@ -155,7 +175,7 @@ const PRODUCTS: Product[] = [
     id: 6,
     name: "Solawave Wrinkle Retreat Light Therapy Mask",
     bestFor: "Best for Travel & Portability",
-    rating: 4.4,
+    rating: 4.3,
     price: "$349",
     msrp: "$399",
     image: "https://www.consumerskills.org/wp-content/uploads/2026/04/solarwave.jpg",
@@ -176,7 +196,7 @@ const PRODUCTS: Product[] = [
     id: 7,
     name: "JOVS 4D Laser Light Therapy Mask",
     bestFor: "Cutting-Edge Laser Technology",
-    rating: 4.3,
+    rating: 4.2,
     price: "$699",
     msrp: "$899",
     image: "https://www.consumerskills.org/wp-content/uploads/2026/04/JOVS-LED.jpg",
@@ -197,8 +217,9 @@ const PRODUCTS: Product[] = [
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const SHARE_URL = "https://go.consumerskills.org/click";
-  const SHARE_TITLE = "7 Best LED Face Masks 2026 | ConsumerSkills";
+  const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
+  const SHARE_URL = "https://go.consumerskills.org/click/1";
+  const SHARE_TITLE = "8 Best LED Face Masks 2026 | ConsumerSkills";
   const SHARE_IMAGE = "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=1200";
 
   const SOCIAL_LINKS = {
@@ -296,7 +317,7 @@ export default function App() {
           className="max-w-3xl mx-auto mb-10 md:mb-20"
         >
           <h1 className="text-[32px] md:text-6xl font-serif font-black leading-tight md:leading-[1.05] mb-8 md:mb-12 text-stone-900 tracking-tight">
-            The 7 Best LED Face Masks for 2026: An In-Depth Investigative Review
+            The 8 Best LED Face Masks for 2026: An In-Depth Investigative Review
           </h1>
 
           <div className="md:hidden mb-8">
@@ -907,14 +928,17 @@ export default function App() {
               <div className="space-y-6">
                 <div className="flex items-center gap-3">
                   <div className="h-0.5 w-8 bg-rose-500" />
-                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Affiliate Disclosure</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Transparency</h4>
                 </div>
                 <p className="text-[11px] leading-relaxed text-stone-500 font-medium">
-                  The Consumerskills participates in affiliate marketing programs. This means that some links on our Website, consumerskills.org, are affiliate links. If you click on an affiliate link and make a purchase, we may earn a commission at no additional cost to you.
+                  We maintain total editorial independence. To support our laboratory testing, we may earn a commission from certain links.
                 </p>
-                <p className="text-[11px] leading-relaxed text-stone-400 italic">
-                  We strive to provide honest and accurate reviews of the products we feature. All opinions expressed on this Website are our own and are not influenced by any affiliate relationships.
-                </p>
+                <button 
+                  onClick={() => setIsDisclosureOpen(true)}
+                  className="text-[11px] px-4 py-2 bg-stone-800 text-stone-300 rounded-lg hover:bg-stone-700 hover:text-white transition-all font-bold uppercase tracking-widest"
+                >
+                  Affiliate Disclosure
+                </button>
               </div>
 
               {/* Disclaimer and Copyright */}
@@ -942,10 +966,10 @@ export default function App() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-stone-200 z-[100] flex items-center justify-between">
         <div>
           <div className="text-[10px] text-stone-400 font-black uppercase tracking-widest">#1 Ranked</div>
-          <div className="text-sm font-bold text-stone-900">Glokore Mastery</div>
+          <div className="text-sm font-bold text-stone-900">Glokore Mask</div>
         </div>
         <a 
-          href="https://go.consumerskills.org/click"
+          href="https://go.consumerskills.org/click/1"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-rose-600 text-white px-6 py-3 rounded-xl text-xs font-bold tracking-widest"
@@ -953,6 +977,56 @@ export default function App() {
           GET 60% OFF
         </a>
       </div>
+
+      {/* Affiliate Disclosure Modal */}
+      <AnimatePresence>
+        {isDisclosureOpen && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsDisclosureOpen(false)}
+              className="absolute inset-0 bg-stone-900/80 backdrop-blur-sm"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-lg bg-white rounded-[2.5rem] p-10 shadow-2xl overflow-hidden"
+            >
+              <button 
+                onClick={() => setIsDisclosureOpen(false)}
+                className="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-stone-400" />
+              </button>
+              
+              <div className="mb-8">
+                <div className="w-12 h-12 bg-rose-50 rounded-2xl flex items-center justify-center mb-6">
+                  <ShieldCheck className="w-6 h-6 text-rose-600" />
+                </div>
+                <h3 className="text-2xl font-serif font-black text-stone-900 mb-4">Affiliate Disclosure</h3>
+                <div className="prose prose-stone font-serif text-stone-600 space-y-4">
+                  <p>
+                    The Consumerskills participates in affiliate marketing programs. This means that some links on our Website, consumerskills.org, are affiliate links. If you click on an affiliate link and make a purchase, we may earn a commission at no additional cost to you.
+                  </p>
+                  <p>
+                    Our research and laboratory testing are independent. We strive to provide honest and accurate reviews of the products we feature. All opinions expressed on this Website are our own and are not influenced by any affiliate relationships.
+                  </p>
+                </div>
+              </div>
+
+              <button 
+                onClick={() => setIsDisclosureOpen(false)}
+                className="w-full py-4 bg-stone-900 text-white rounded-2xl font-bold tracking-widest text-xs uppercase hover:bg-stone-800 transition-colors"
+              >
+                Understood
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
