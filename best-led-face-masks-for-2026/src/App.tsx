@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, X, Star, ChevronRight, Award, ShieldCheck, Clock, Zap, Info, Facebook, Instagram, Twitter, Share2, Menu, ShoppingBag } from "lucide-react";
+import { Check, X, Star, ChevronRight, Award, ShieldCheck, Clock, Zap, Info, Facebook, Linkedin, MessageCircle, Twitter, Share2, Menu, ShoppingBag } from "lucide-react";
 
 interface Product {
   id: number;
@@ -218,7 +218,7 @@ const PRODUCTS: Product[] = [
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
-  const SHARE_URL = "https://go.consumerskills.org/click/1";
+  const SHARE_URL = "https://us.consumerskills.org/best-led-face-masks-for-2026";
   const SHARE_TITLE = "8 Best LED Face Masks 2026 | ConsumerSkills";
   const SHARE_IMAGE = "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&q=80&w=1200";
 
@@ -226,18 +226,17 @@ export default function App() {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SHARE_URL)}`,
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(SHARE_URL)}&text=${encodeURIComponent(SHARE_TITLE)}`,
     pinterest: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(SHARE_URL)}&media=${encodeURIComponent(SHARE_IMAGE)}&description=${encodeURIComponent(SHARE_TITLE)}`,
-    instagram: "https://www.instagram.com/consumerskills" // Generic brand link
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(SHARE_URL)}`,
+    whatsapp: `https://api.whatsapp.com/send?text=${encodeURIComponent(SHARE_TITLE + " " + SHARE_URL)}`
   };
 
-  const handleShare = async (e: React.MouseEvent, platform: string) => {
-    if (platform !== 'instagram') return; // Allow normal link behavior for others
-    
+  const handleShare = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (navigator.share) {
       try {
         await navigator.share({
           title: SHARE_TITLE,
-          text: `Check out this report on the 7 Best LED Face Masks of 2026!`,
+          text: `Check out this report on the 8 Best LED Face Masks of 2026!`,
           url: SHARE_URL,
         });
       } catch (err) {
@@ -247,9 +246,9 @@ export default function App() {
       // Desktop or unsupported fallback: Copy Link
       try {
         await navigator.clipboard.writeText(SHARE_URL);
-        alert("Link copied to clipboard! You can now share it on Instagram.");
+        alert("Link copied to clipboard!");
       } catch (err) {
-        window.open(SOCIAL_LINKS.instagram, "_blank");
+        console.error('Failed to copy', err);
       }
     }
   };
@@ -266,15 +265,11 @@ export default function App() {
             <span className="font-serif italic text-2xl font-black tracking-tighter text-stone-900">ConsumerSkills</span>
           </div>
           <nav className="hidden md:flex gap-8 text-[11px] font-bold text-stone-400 uppercase tracking-widest items-center">
-            <a href="https://go.consumerskills.org/click" className="hover:text-stone-900 transition-colors">Skincare Science</a>
-            <a href="https://go.consumerskills.org/click" className="hover:text-stone-900 transition-colors">Tech Reviews</a>
-            <a href="https://go.consumerskills.org/click" className="hover:text-stone-900 transition-colors">About Our Lab</a>
+            <a href="https://go.consumerskills.org/click/1" className="hover:text-stone-900 transition-colors">Skincare Science</a>
+            <a href="https://go.consumerskills.org/click/1" className="hover:text-stone-900 transition-colors">Tech Reviews</a>
+            <a href="https://go.consumerskills.org/click/1" className="hover:text-stone-900 transition-colors">About Our Lab</a>
           </nav>
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-4">
-              <a href={SOCIAL_LINKS.twitter} className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-4 h-4 text-xs" /></a>
-            </div>
-            
             {/* Hamburger Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -296,13 +291,9 @@ export default function App() {
               className="md:hidden bg-white border-b border-stone-200 overflow-hidden"
             >
               <div className="px-4 py-8 flex flex-col gap-6">
-                <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Skincare Science</a>
-                <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Tech Reviews</a>
-                <a href="https://go.consumerskills.org/click" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">About Our Lab</a>
-                <div className="flex items-center gap-6 pt-4">
-                  <a href={SOCIAL_LINKS.facebook} className="text-stone-400 hover:text-stone-900 transition-colors"><Facebook className="w-6 h-6" /></a>
-                  <a href={SOCIAL_LINKS.twitter} className="text-stone-400 hover:text-stone-900 transition-colors"><Twitter className="w-6 h-6" /></a>
-                </div>
+                <a href="https://go.consumerskills.org/click/1" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Skincare Science</a>
+                <a href="https://go.consumerskills.org/click/1" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">Tech Reviews</a>
+                <a href="https://go.consumerskills.org/click/1" onClick={() => setIsMenuOpen(false)} className="text-lg font-serif italic font-bold text-stone-900 border-b border-stone-100 pb-2">About Our Lab</a>
               </div>
             </motion.div>
           )}
@@ -708,16 +699,16 @@ export default function App() {
         <section className="mt-16 md:mt-24 border-t-2 border-stone-900 pt-16">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-10 leading-tight font-black tracking-tight">
-              Investigative Deep Dive: Why the <a href="https://go.consumerskills.org/click" className="bg-rose-100 text-stone-900 px-1 underline underline-offset-4 decoration-rose-500 transition-all font-bold uppercase text-2xl md:text-4xl tracking-tighter">Glokore Mask</a> is the Best Deal
+              Investigative Deep Dive: Why the <a href="https://go.consumerskills.org/click/1" className="bg-rose-100 text-stone-900 px-1 underline underline-offset-4 decoration-rose-500 transition-all font-bold uppercase text-2xl md:text-4xl tracking-tighter">Glokore Mask</a> is the Best Deal
             </h2>
             
             <div className="prose prose-stone text-lg max-w-none text-stone-600 space-y-8 leading-[1.8] font-serif">
               <p>
-                If you’re looking for a light therapy mask that delivers a range of skincare benefits without breaking the bank, the wireless <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore LED Mask</a> is your best option. 
+                If you’re looking for a light therapy mask that delivers a range of skincare benefits without breaking the bank, the wireless <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore LED Mask</a> is your best option. 
               </p>
 
               <p>
-                We love that <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> offers the most light modes of any mask we tested, each targeting specific skin concerns. For example, blue light is only absorbed by the top layer of your skin and can help with superficial issues like acne. However, red and near-infrared light penetrate deep and have the best potential to reduce inflammation and stimulate collagen production for anti-aging benefits. 
+                We love that <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> offers the most light modes of any mask we tested, each targeting specific skin concerns. For example, blue light is only absorbed by the top layer of your skin and can help with superficial issues like acne. However, red and near-infrared light penetrate deep and have the best potential to reduce inflammation and stimulate collagen production for anti-aging benefits. 
               </p>
 
               <p>
@@ -737,7 +728,7 @@ export default function App() {
               <h4 className="font-serif text-2xl font-black text-stone-900 mt-12">I tried it for 7 days, here are the results:</h4>
 
               <p>
-                I decided to order and try the <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mask</a> since I am in my early 40’s and figured my skin could use a beauty boost! So I ordered it and it literally came within 3 days. Delivery was QUICK! I was excited to try it so I went straight to my bedroom, unboxed it, and put it on for the recommended 10-minutes.
+                I decided to order and try the <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mask</a> since I am in my early 40’s and figured my skin could use a beauty boost! So I ordered it and it literally came within 3 days. Delivery was QUICK! I was excited to try it so I went straight to my bedroom, unboxed it, and put it on for the recommended 10-minutes.
               </p>
 
               <p>
@@ -745,21 +736,21 @@ export default function App() {
               </p>
 
               <p>
-                I continued using it for the week and by day 7 I literally looked ten years younger. I was in shock when I compared my before and after photos. I swear by red light therapy and the <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mask</a>, and it absolutely gets the #1 spot on our list. The photos above speak for themselves.
+                I continued using it for the week and by day 7 I literally looked ten years younger. I was in shock when I compared my before and after photos. I swear by red light therapy and the <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore Mask</a>, and it absolutely gets the #1 spot on our list. The photos above speak for themselves.
               </p>
 
               <div className="bg-stone-50 p-8 rounded-lg border-l-4 border-rose-500 my-12 text-stone-900">
                 <p className="text-lg leading-relaxed italic">
-                  "Typically to get results like this you would have to do multiple trips to a dermatologist, spending thousands of dollars. But with <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> you only spend just over a hundred dollars, one time and you can use it for life! Best deal in the beauty market right now."
+                  "Typically to get results like this you would have to do multiple trips to a dermatologist, spending thousands of dollars. But with <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> you only spend just over a hundred dollars, one time and you can use it for life! Best deal in the beauty market right now."
                 </p>
               </div>
 
               <p>
-                Consistency is key. <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> recommends you use it several times a week for 10–20 minutes each session to see results. These treatments are longer than others in this review, but it’s a small tradeoff when you consider price. Most LED masks start at around $300, but this mask is regularly priced at around $240.
+                Consistency is key. <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> recommends you use it several times a week for 10–20 minutes each session to see results. These treatments are longer than others in this review, but it’s a small tradeoff when you consider price. Most LED masks start at around $300, but this mask is regularly priced at around $240.
               </p>
               
               <p>
-                But <a href="https://go.consumerskills.org/click" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> offers frequent discounts. Around the time we wrote this review, the price was just <strong>$109</strong>, which is less than half the price of other options on our list.
+                But <a href="https://go.consumerskills.org/click/1" className="text-rose-600 font-bold border-b border-rose-200 hover:text-rose-700 transition-colors">Glokore</a> offers frequent discounts. Around the time we wrote this review, the price was just <strong>$109</strong>, which is less than half the price of other options on our list.
               </p>
             </div>
           </div>
@@ -821,7 +812,7 @@ export default function App() {
         <section className="mt-20 py-16 border-t border-stone-100 bg-[#FDFCFB]">
           <div className="max-w-xl mx-auto px-4 text-center">
             <h3 className="text-xs font-black uppercase tracking-[0.3em] text-stone-400 mb-8">Share this report</h3>
-            <div className="flex justify-center gap-6 md:gap-10">
+            <div className="flex justify-center flex-wrap gap-6 md:gap-10">
               <a 
                 href={SOCIAL_LINKS.facebook} 
                 target="_blank" 
@@ -847,16 +838,27 @@ export default function App() {
               </a>
 
               <a 
-                onClick={(e) => handleShare(e, 'instagram')}
-                href={SOCIAL_LINKS.instagram} 
+                href={SOCIAL_LINKS.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="group flex flex-col items-center gap-3"
               >
-                <div className="w-16 h-16 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-rose-200 group-hover:scale-110 group-hover:-rotate-3 transition-all">
-                  <Instagram className="w-8 h-8" />
+                <div className="w-16 h-16 bg-[#0077B5] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-blue-200 group-hover:scale-110 group-hover:-rotate-3 transition-all">
+                  <Linkedin className="w-8 h-8 fill-current" />
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#dc2743] opacity-0 group-hover:opacity-100 transition-opacity">Instagram</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#0077B5] opacity-0 group-hover:opacity-100 transition-opacity">LinkedIn</span>
+              </a>
+
+              <a 
+                href={SOCIAL_LINKS.whatsapp} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="w-16 h-16 bg-[#25D366] text-white rounded-2xl flex items-center justify-center shadow-lg shadow-green-200 group-hover:scale-110 group-hover:rotate-3 transition-all">
+                  <MessageCircle className="w-8 h-8 fill-current" />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#25D366] opacity-0 group-hover:opacity-100 transition-opacity">WhatsApp</span>
               </a>
 
               <a 
@@ -897,9 +899,9 @@ export default function App() {
             <div className="md:col-span-2">
               <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-white/40 mb-8 pb-2 border-b border-white/10 decoration-rose-500 underline underline-offset-8">Journal</h4>
               <nav className="flex flex-col gap-4 text-sm font-medium text-stone-400">
-                <a href="https://go.consumerskills.org/click" className="hover:text-rose-500 transition-colors">Skincare Science</a>
-                <a href="https://go.consumerskills.org/click" className="hover:text-rose-500 transition-colors">Tech Reviews</a>
-                <a href="https://go.consumerskills.org/click" className="hover:text-rose-500 transition-colors">Lab Protocols</a>
+                <a href="https://go.consumerskills.org/click/1" className="hover:text-rose-500 transition-colors">Skincare Science</a>
+                <a href="https://go.consumerskills.org/click/1" className="hover:text-rose-500 transition-colors">Tech Reviews</a>
+                <a href="https://go.consumerskills.org/click/1" className="hover:text-rose-500 transition-colors">Lab Protocols</a>
               </nav>
             </div>
 
@@ -908,7 +910,7 @@ export default function App() {
               <nav className="flex flex-col gap-4 text-sm font-medium text-stone-400">
                 <a href="https://www.consumerskills.org/#about" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors">Our Story</a>
                 <a href="https://www.consumerskills.org/#contact" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors">Contact Us</a>
-                <a href="https://go.consumerskills.org/click" className="hover:text-rose-500 transition-colors">Editorial Board</a>
+                <a href="https://go.consumerskills.org/click/1" className="hover:text-rose-500 transition-colors">Editorial Board</a>
               </nav>
             </div>
 
@@ -917,7 +919,7 @@ export default function App() {
               <nav className="flex flex-col gap-4 text-sm font-medium text-stone-400">
                 <a href="https://www.consumerskills.org/terms-and-conditions/" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors">Terms of Service</a>
                 <a href="https://www.consumerskills.org/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors">Privacy Policy</a>
-                <a href="https://go.consumerskills.org/click" className="hover:text-rose-500 transition-colors">Cookie Settings</a>
+                <a href="https://go.consumerskills.org/click/1" className="hover:text-rose-500 transition-colors">Cookie Settings</a>
               </nav>
             </div>
           </div>
